@@ -3,7 +3,7 @@ package me.golovina.recipebook1.model;
 import java.util.List;
 
 public class Recipe {
-    private String nameRecipe;  //title
+    private String nameRecipe;
     private int time;
     private List<Ingredient> ingredients;
     private List<String> preparingSteps;

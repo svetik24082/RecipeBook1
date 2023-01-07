@@ -24,7 +24,22 @@ public class RecipeServiceImpl implements RecipeService {
             throw new RuntimeException(" Такого рецепта нет!");
         }
     }
-@Override
+
+    @Override
+    public Recipe update(long id, Recipe recipe) {
+        if (recipes.containsKey(id)) {
+             recipes.put(id, recipe);
+            return recipe;
+        }
+        return null;
+    }
+
+    @Override
+    public Recipe remove(long id) {
+        return recipes.remove(id);
+    }
+
+    @Override
     public Recipe addRecipe(Recipe recipe) {  // доб рец
         if (recipes.containsKey(counter)) {
             throw new RuntimeException("Такой рецепт уже есть!");

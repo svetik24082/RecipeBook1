@@ -25,4 +25,12 @@ public class RecipeController {
     public Recipe addRecipe(@RequestBody Recipe recipe) {
         return this.recipeService.addRecipe(recipe);
     }
+    @PutMapping("/{id}")
+    public  Recipe updateRecipe(@PathVariable("id")long id,@RequestBody Recipe recipe){
+        return recipeService.update(id,recipe);
+    }
+    @DeleteMapping("/{id}")
+    public Recipe deleteRecipe(@PathVariable("id")long id){
+        return recipeService.remove(id);
+    }
 }

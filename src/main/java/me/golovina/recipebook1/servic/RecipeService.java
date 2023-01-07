@@ -8,6 +8,8 @@ public interface RecipeService {
     Collection<Recipe> getAll();
     Recipe addRecipe(Recipe recipe);
     Recipe getRecipeById(long id);
+    Recipe update(long id, Recipe recipe);
+    Recipe remove (long id);
 
 
 }

@@ -9,13 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 @Service
 public class IngredientServiceImpl implements IngredientService {
-    private final Map<Integer, Ingredient> ingredients = new HashMap<>();
-    private int id = 0;
-
+    private final Map<Long, Ingredient> ingredients = new HashMap<>();
+    private long id = 0;
+@Override
     public Collection<Ingredient> getAllIngredient() {// получение всех ингред
         return ingredients.values();
     }
-
+@Override
     public Ingredient addIngredient(Ingredient ingredient) {  // доб рец
         if (ingredients.containsKey(id)) {
             throw new RuntimeException("Такой ингредиент уже есть!");
@@ -25,11 +25,24 @@ public class IngredientServiceImpl implements IngredientService {
         return ingredient;
     }
 
-
-    public Ingredient getIngredientById(int id) {
+@Override
+    public Ingredient getIngredientById(long id) {
         if (ingredients.containsKey(id)) {
             return ingredients.get(id);
         } else {
             throw new RuntimeException(" Такого ингредиента нет!");
         }}
+
+    @Override
+    public Ingredient update(long id, Ingredient ingredient) {
+    if (ingredients.containsKey(id)){
+        return ingredients.put(id,ingredient);
+    }
+        return null;
+    }
+
+    @Override
+    public Ingredient remove(long id) {
+        return ingredients.remove(id);
+    }
 }

@@ -1,9 +1,9 @@
 package me.golovina.recipebook1.model;
 
 public class Ingredient {
-    private  String nameIngredient;  //title
-    private int amount;    // кол-во  quantity
-    private  String unit;  // ед.измер
+    private  String nameIngredient;
+    private int amount;
+    private  String unit;
 
     public Ingredient(String nameIngredient, int amount, String unit) {
         this.nameIngredient = nameIngredient;
