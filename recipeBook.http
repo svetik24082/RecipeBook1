@@ -3,7 +3,7 @@ POST http://localhost:8080/recipe
 Content-Type: application/json
 
 {
-  "nameRecipe": "Сырники из творога ",
+  "nameRecipe": "Сырники из творога",
   "time": 30,
   "unit": " мин.",
   "ingredients": [

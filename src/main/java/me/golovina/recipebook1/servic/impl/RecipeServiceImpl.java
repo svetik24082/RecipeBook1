@@ -7,16 +7,19 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
 @Service
 public class RecipeServiceImpl implements RecipeService {
     private final Map<Long, Recipe> recipes = new HashMap<>();
 
     private Long counter = 0L;
-@Override
+
+    @Override
     public Collection<Recipe> getAll() {// получение всех рец
         return recipes.values();
     }
-@Override
+
+    @Override
     public Recipe getRecipeById(long id) {
         if (recipes.containsKey(id)) {
             return recipes.get(id);
@@ -28,7 +31,7 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public Recipe update(long id, Recipe recipe) {
         if (recipes.containsKey(id)) {
-             recipes.put(id, recipe);
+            recipes.put(id, recipe);
             return recipe;
         }
         return null;
