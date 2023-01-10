@@ -33,8 +33,10 @@ public class RecipeServiceImpl implements RecipeService {
         if (recipes.containsKey(id)) {
             recipes.put(id, recipe);
             return recipe;
+        }else {
+            throw new RuntimeException(" Вы пытаетесь обновить не существующий рецепт!");
         }
-        return null;
+
     }
 
     @Override

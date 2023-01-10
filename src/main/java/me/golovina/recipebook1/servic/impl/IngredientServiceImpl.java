@@ -41,8 +41,10 @@ public class IngredientServiceImpl implements IngredientService {
     public Ingredient update(long id, Ingredient ingredient) {
         if (ingredients.containsKey(id)) {
             return ingredients.put(id, ingredient);
+        }else{
+            throw new RuntimeException(" Вы пытаетесь обновить не существующий ингредиент!");
         }
-        return null;
+
     }
 
     @Override
