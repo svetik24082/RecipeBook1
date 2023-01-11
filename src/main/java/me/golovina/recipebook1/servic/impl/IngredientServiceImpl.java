@@ -1,5 +1,6 @@
 package me.golovina.recipebook1.servic.impl;
 
+import me.golovina.recipebook1.exception.ExceptionWithIngredientVerification;
 import me.golovina.recipebook1.model.Ingredient;
 import me.golovina.recipebook1.servic.IngredientService;
 import org.springframework.stereotype.Service;
@@ -29,20 +30,20 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
-    public Ingredient getIngredientById(long id) {
+    public Ingredient getIngredientById(long id) throws ExceptionWithIngredientVerification {
         if (ingredients.containsKey(id)) {
             return ingredients.get(id);
         } else {
-            throw new RuntimeException(" Такого ингредиента нет!");
+            throw new ExceptionWithIngredientVerification(" Такого ингредиента нет!");
         }
     }
 
     @Override
-    public Ingredient update(long id, Ingredient ingredient) {
+    public Ingredient update(long id, Ingredient ingredient) throws ExceptionWithIngredientVerification {
         if (ingredients.containsKey(id)) {
             return ingredients.put(id, ingredient);
         }else{
-            throw new RuntimeException(" Вы пытаетесь обновить не существующий ингредиент!");
+            throw new ExceptionWithIngredientVerification(" Вы пытаетесь обновить не существующий ингредиент!");
         }
 
     }

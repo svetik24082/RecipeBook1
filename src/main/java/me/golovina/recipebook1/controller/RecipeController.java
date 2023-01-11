@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import me.golovina.recipebook1.exception.ExceptionWithCheckingRecipes;
 import me.golovina.recipebook1.model.Recipe;
 import me.golovina.recipebook1.servic.RecipeService;
 import org.apache.commons.lang3.StringUtils;
@@ -47,7 +48,7 @@ public class RecipeController {
 
             )
     })
-    public Recipe getRecipeById(@PathVariable("id") long id) {
+    public Recipe getRecipeById(@PathVariable("id") long id) throws ExceptionWithCheckingRecipes {
         return recipeService.getRecipeById(id);
     }
 
@@ -60,7 +61,7 @@ public class RecipeController {
     }
 
     @PutMapping("/{id}")
-    public Recipe updateRecipe(@PathVariable("id") long id, @RequestBody Recipe recipe) {
+    public Recipe updateRecipe(@PathVariable("id") long id, @RequestBody Recipe recipe) throws ExceptionWithCheckingRecipes {
         return recipeService.update(id, recipe);
     }
 

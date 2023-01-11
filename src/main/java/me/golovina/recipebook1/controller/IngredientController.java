@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import me.golovina.recipebook1.exception.ExceptionWithIngredientVerification;
 import me.golovina.recipebook1.model.Ingredient;
 import me.golovina.recipebook1.model.Recipe;
 import me.golovina.recipebook1.servic.IngredientService;
@@ -49,7 +50,7 @@ public class IngredientController {
 
             )
     })
-    public Ingredient getIngredientById(@PathVariable("id") long id) {
+    public Ingredient getIngredientById(@PathVariable("id") long id) throws ExceptionWithIngredientVerification {
         return ingredientService.getIngredientById(id);
     }
 
@@ -64,7 +65,7 @@ public class IngredientController {
     }
 
     @PutMapping("/{id}")
-    public Ingredient updateIngredient(@PathVariable("id") long id, @RequestBody Ingredient ingredient) {
+    public Ingredient updateIngredient(@PathVariable("id") long id, @RequestBody Ingredient ingredient) throws ExceptionWithIngredientVerification {
         return ingredientService.update(id, ingredient);
     }
 

@@ -1,5 +1,6 @@
 package me.golovina.recipebook1.servic.impl;
 
+import me.golovina.recipebook1.exception.ExceptionWithCheckingRecipes;
 import me.golovina.recipebook1.model.Recipe;
 import me.golovina.recipebook1.servic.RecipeService;
 import org.springframework.stereotype.Service;
@@ -20,21 +21,21 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public Recipe getRecipeById(long id) {
+    public Recipe getRecipeById(long id) throws ExceptionWithCheckingRecipes {
         if (recipes.containsKey(id)) {
             return recipes.get(id);
         } else {
-            throw new RuntimeException(" Такого рецепта нет!");
+            throw new ExceptionWithCheckingRecipes(" Такого рецепта нет!");
         }
     }
 
     @Override
-    public Recipe update(long id, Recipe recipe) {
+    public Recipe update(long id, Recipe recipe) throws ExceptionWithCheckingRecipes{
         if (recipes.containsKey(id)) {
             recipes.put(id, recipe);
             return recipe;
         }else {
-            throw new RuntimeException(" Вы пытаетесь обновить не существующий рецепт!");
+            throw new ExceptionWithCheckingRecipes(" Вы пытаетесь обновить не существующий рецепт!");
         }
 
     }
