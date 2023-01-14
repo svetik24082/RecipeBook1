@@ -12,15 +12,17 @@ import me.golovina.recipebook1.model.Ingredient;
 import me.golovina.recipebook1.model.Recipe;
 import me.golovina.recipebook1.servic.IngredientService;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/ingredient")
+@RequestMapping("/ingredients")
 @Tag(name = "Ингредиенты", description = "Операции для работы с ингредиентами и другие эндпоинты")
 public class IngredientController {
+    @Qualifier("ingredientService")
     private final IngredientService ingredientService;
 
 
