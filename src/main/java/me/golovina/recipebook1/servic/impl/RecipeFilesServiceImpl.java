@@ -6,6 +6,7 @@ import me.golovina.recipebook1.servic.RecipeFilesService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -48,6 +49,11 @@ public class RecipeFilesServiceImpl implements RecipeFilesService {
         } catch (IOException e) {
             return false;
         }
+
+    }
+    @Override
+    public File getDataFile(){
+        return new File(dataFilePath + "/" + dataFileName);
 
     }
 
