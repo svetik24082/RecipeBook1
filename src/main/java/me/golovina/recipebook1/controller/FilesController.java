@@ -41,38 +41,9 @@ public class FilesController {
 
         }
     }
+}
 
-    @PostMapping(value = "/recipes", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Void> uploadRecipesDataFile(@RequestParam MultipartFile file) {  //загрузка файла
-        recipeFilesService.cleanDataFile();
-        File dataFile = recipeFilesService.getDataFile();
-        try (FileOutputStream fos = new FileOutputStream(dataFile)) {
-            IOUtils.copy(file.getInputStream(), fos);
-            return ResponseEntity.ok().build();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-
-        }
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-    }
-
-    @PostMapping(value = "/ingredients", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Void> uploadIngredientsDataFile(@RequestParam MultipartFile file) {
-        ingredientFilesService.cleanDataFile();
-        File dataFile = ingredientFilesService.getDataFile();
-        try (FileOutputStream fos = new FileOutputStream(dataFile)) {
-            IOUtils.copy(file.getInputStream(), fos);
-            return ResponseEntity.ok().build();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-
-        }
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-    }
-
-    }
 
 
 

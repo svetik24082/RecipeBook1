@@ -1,10 +1,8 @@
 package me.golovina.recipebook1.exception;
 
-public class ExceptionWithCheckingRecipes extends Exception{
-    public ExceptionWithCheckingRecipes(){
+public class ExceptionWithCheckingRecipes extends Exception {
 
-    }
-    public ExceptionWithCheckingRecipes (String message){
+    public ExceptionWithCheckingRecipes(String message) {
         super(message);
     }
 }
