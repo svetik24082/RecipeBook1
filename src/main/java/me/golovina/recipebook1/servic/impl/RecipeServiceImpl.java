@@ -10,6 +10,11 @@ import me.golovina.recipebook1.servic.RecipeService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -90,6 +95,20 @@ public class RecipeServiceImpl implements RecipeService {
         } catch (JsonProcessingException e) {
             throw new ExceptionWithCheckingRecipes("Не удается прочитать рецепт");
         }
+    }
+
+    @Override
+    public Path createRecipesFile() throws IOException {
+        Path path = recipeFilesService.createTempFile("recipes");
+        for (Recipe recipe : recipes.values()) {
+            try (Writer writer = Files.newBufferedWriter(path, StandardOpenOption.APPEND)) {
+                writer.append("Название рецепта: " + recipe.getNameRecipe() + '\n' + '\n' +
+                        "Время приготовления: " + recipe.getTime() + '\n' + '\n' +
+                        "Ингредиенты: " + '\n' + '\n' + recipe.ingredientsToString() + '\n' +
+                        "Инструкция приготовления: " + '\n' + '\n' + recipe.stepsToString() + '\n');
+            }
+        }
+        return path;
     }
 }
 

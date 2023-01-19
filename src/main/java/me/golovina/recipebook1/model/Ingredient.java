@@ -10,4 +10,9 @@ public class Ingredient {
     private int amount;
     private String unit;
 
+
+    @Override
+    public String toString() {
+        return nameIngredient + ": " + amount + " " + unit;
+    }
 }

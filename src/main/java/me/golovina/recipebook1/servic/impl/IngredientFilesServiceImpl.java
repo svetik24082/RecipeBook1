@@ -1,5 +1,6 @@
 package me.golovina.recipebook1.servic.impl;
 
+import io.swagger.v3.oas.annotations.Operation;
 import me.golovina.recipebook1.exception.ExceptionWithIngredientVerification;
 import me.golovina.recipebook1.exception.ServiceException;
 import me.golovina.recipebook1.servic.IngredientFilesService;
@@ -65,6 +66,11 @@ public class IngredientFilesServiceImpl implements IngredientFilesService {
     public File getDataFile() {
         return new File(dataFilePath + "/" + dataFileName);
     }
+
+    @Operation(
+            summary = "Загрузить свой файл с ингредиентами",
+            description = "файл в любом формате"
+    )
 
     @PostMapping(value = "/ingredients", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> uploadIngredientsDataFile(@RequestParam MultipartFile file) throws ServiceException {

@@ -3,6 +3,8 @@ package me.golovina.recipebook1.servic;
 import me.golovina.recipebook1.exception.ExceptionWithCheckingRecipes;
 import me.golovina.recipebook1.model.Recipe;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Collection;
 
 public interface RecipeService {
@@ -17,5 +19,9 @@ public interface RecipeService {
     Recipe remove(long id);
 
 
+    Path createRecipesFile() throws IOException;
 }
+
+
+
 
