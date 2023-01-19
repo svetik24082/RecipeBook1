@@ -1,50 +1,29 @@
 package me.golovina.recipebook1.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+
 public class Recipe {
-    private String nameRecipe;  //title
+    private String nameRecipe;
     private int time;
     private List<Ingredient> ingredients;
     private List<String> preparingSteps;
 
-
-    public Recipe( String nameRecipe, int time) {
-        this.nameRecipe = nameRecipe;
-        this.time = time;
-
+    public StringBuilder stepsToString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < preparingSteps.size(); i++)
+            sb.append(preparingSteps.get(i) + '\n');
+        return sb;
     }
 
-    public String getNameRecipe() {
-        return nameRecipe;
-    }
-
-    public int getTime() {
-        return time;
-    }
-
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public List<String> getPreparingSteps() {
-        return preparingSteps;
-    }
-
-
-    public void setNameRecipe(String nameRecipe) {
-        this.nameRecipe = nameRecipe;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
-    }
-
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public void setPreparingSteps(List<String> preparingSteps) {
-        this.preparingSteps = preparingSteps;
+    public StringBuilder ingredientsToString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < ingredients.size(); i++)
+            sb.append(ingredients.get(i).toString() + '\n');
+        return sb;
     }
 }
