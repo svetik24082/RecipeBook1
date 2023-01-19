@@ -2,7 +2,6 @@ package me.golovina.recipebook1.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 @Data

@@ -1,5 +1,4 @@
 package me.golovina.recipebook1.controller;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -9,13 +8,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import me.golovina.recipebook1.exception.ExceptionWithIngredientVerification;
 import me.golovina.recipebook1.model.Ingredient;
-import me.golovina.recipebook1.model.Recipe;
 import me.golovina.recipebook1.servic.IngredientService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
 
 @RestController

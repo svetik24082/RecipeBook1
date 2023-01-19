@@ -1,20 +1,13 @@
 package me.golovina.recipebook1.servic.impl;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.golovina.recipebook1.exception.ExceptionWithIngredientVerification;
 import me.golovina.recipebook1.model.Ingredient;
-
 import me.golovina.recipebook1.servic.IngredientFilesService;
 import me.golovina.recipebook1.servic.IngredientService;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;

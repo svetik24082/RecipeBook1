@@ -1,7 +1,6 @@
 package me.golovina.recipebook1.servic;
 
 import me.golovina.recipebook1.exception.ExceptionWithIngredientVerification;
-
 import java.io.File;
 
 public interface IngredientFilesService {
